@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bishal Khatri — Profile</title>
   <meta name="description" content="Personal academic profile of Bishal Khatri" />
+  <!-- Professional font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
       --bg: #0b1220;
@@ -19,50 +21,109 @@
       --shadow: 0 10px 24px rgba(0,0,0,.35);
       --max: 1100px;
     }
+
     html,body{height:100%}
-    body{margin:0;background:linear-gradient(180deg,var(--bg),#0e152a 65%);color:var(--text);font:15px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+    html{ scroll-behavior: smooth; }
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--bg),#0e152a 65%);
+      color:var(--text);
+      font:15px/1.6 Inter, system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial
+    }
     a{color:var(--brand);text-decoration:none}
-    a:hover{text-decoration:underline}
+    a:hover{opacity:.9;text-decoration:none}
+
     .wrap{max-width:var(--max);margin-inline:auto;padding:24px}
+
+    /* NAV */
     .nav{position:sticky;top:0;z-index:40;background:rgba(15,23,42,.75);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
     .nav .inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 24px;max-width:var(--max);margin:0 auto}
-    .brand{font-weight:700;color:#fff}
+    .brand{font-weight:800;color:#fff}
     .tabs{display:none;gap:8px;flex-wrap:wrap}
     .tabs a{display:inline-block;padding:8px 12px;border:1px solid var(--border);border-radius:999px;color:var(--text)}
     .tabs a.active{background:var(--brand);border-color:transparent;color:#031625}
     .cta{padding:8px 12px;border:1px solid var(--border);border-radius:999px;color:var(--text);background:transparent}
     @media (min-width: 860px){.tabs{display:flex}}
 
-    .hero{padding:36px 24px}
-    .heroGrid{display:grid;grid-template-columns:84px 1fr;gap:16px;align-items:center}
-    .avatar{width:84px;height:84px;border-radius:50%;border:2px solid var(--border);object-fit:cover}
-    .title{margin:0;font-size:28px;line-height:1.2}
-    .subtitle{margin:4px 0;color:var(--muted)}
-    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-    .chip{font-size:12px;padding:6px 10px;background:var(--chip);border:1px solid var(--border);border-radius:999px;color:var(--muted)}
-
+    /* Reusable */
     section{scroll-margin-top:84px}
-    .section{padding:24px}
-    .section h2{display:flex;align-items:center;gap:8px;margin:0 0 12px 0;font-size:18px}
+    .section{padding:28px}
+    .section h2{display:flex;align-items:center;gap:8px;margin:0 0 12px 0;font-size:20px;letter-spacing:.2px}
     .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--brand)}
-    .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+    .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px 18px 20px;box-shadow:var(--shadow)}
     .grid{display:grid;gap:16px}
     @media (min-width: 900px){.grid.cols-2{grid-template-columns:1fr 1fr}}
-
     ul.clean{list-style:none;padding:0;margin:0;display:grid;gap:12px}
-    .newsItem{display:flex;gap:10px;align-items:flex-start}
-    .badge{background:var(--brand);color:#031625;border-radius:999px;padding:2px 8px;font-size:11px;font-weight:700}
 
+    /* Rhythm between big sections */
+    .section + .section{position:relative}
+    .section + .section::before{
+      content:"";position:absolute;left:24px;right:24px;top:0;height:1px;
+      background:linear-gradient(90deg,transparent, rgba(255,255,255,.06),transparent);
+    }
+
+    /* Tables */
     table{width:100%;border-collapse:collapse}
     th,td{padding:8px 6px;border-top:1px solid var(--border)}
     th{color:var(--muted);font-weight:600;text-align:left}
+    tbody tr:nth-child(odd) td{background:rgba(255,255,255,.02)}
+
+    /* Chips */
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .chip{
+      font-size:12px;padding:6px 10px;background:linear-gradient(180deg,#0a1327,#0a1222);
+      border:1px solid var(--border);border-radius:999px;color:#a7b3c9
+    }
 
     footer{border-top:1px solid var(--border);color:var(--muted)}
-
     .muted{color:var(--muted)}
     .row{display:flex;gap:12px;flex-wrap:wrap}
     .space-top{margin-top:12px}
+
+    /* Buttons */
+    .btn{
+      display:inline-flex;align-items:center;gap:.5rem;
+      padding:.75rem 1.1rem;border-radius:999px;
+      border:1px solid var(--border);background:rgba(255,255,255,.03);
+      color:var(--text);font-weight:600;text-decoration:none;box-shadow:var(--shadow)
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn.accent{background:var(--brand);color:#031625;border-color:transparent}
+    .btn.ghost{background:transparent}
+    .btn.small{padding:.55rem .9rem;font-weight:600}
+    .shadow-lg{ box-shadow: 0 16px 40px rgba(0,0,0,.45); }
+
+    /* ===================== HERO (Upgraded) ====================== */
+    .hero{position:relative;overflow:hidden;padding:40px 28px;border:1px solid var(--border)}
+    .hero::before, .hero::after{content:"";position:absolute;pointer-events:none;z-index:0}
+    .hero::before{
+      inset:-40% -20% auto -20%;height:140%;
+      background:
+        radial-gradient(40% 35% at 20% 20%, rgba(56,189,248,.18), transparent 60%),
+        radial-gradient(35% 30% at 80% 30%, rgba(167,139,250,.16), transparent 60%),
+        radial-gradient(30% 28% at 60% 80%, rgba(56,189,248,.10), transparent 60%);
+      filter:blur(30px)
+    }
+    .hero::after{inset:0;background-image:linear-gradient(180deg, rgba(3,10,22,0), rgba(3,10,22,.25))}
+    .heroGrid2{position:relative;z-index:1;display:grid;gap:24px;align-items:center;grid-template-columns:1fr}
+    @media (min-width:900px){.heroGrid2{grid-template-columns:1.25fr .9fr;gap:36px}}
+    .heroText h1{font-size:clamp(28px,4vw,40px);margin:0 0 6px 0;font-weight:800}
+    .tagline{color:var(--muted);font-weight:600;margin:0 0 10px 0}
+    .pitch{margin-top:8px;max-width:56ch}
+    .heroCTAs{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .heroPhotoWrap{display:flex;justify-content:center}
+    .avatarXL{
+      width:220px;height:220px;object-fit:cover;border-radius:24px;
+      border:3px solid rgba(255,255,255,.08);
+      box-shadow:0 20px 60px rgba(0,0,0,.55),0 0 0 6px rgba(56,189,248,.10)
+    }
+    @media (min-width:900px){.avatarXL{width:260px;height:260px;border-radius:28px}}
+
+    /* News list */
+    .newsItem{display:flex;gap:10px;align-items:flex-start}
+    .badge{background:var(--brand);color:#031625;border-radius:999px;padding:2px 8px;font-size:11px;font-weight:700}
   </style>
+
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const ids = ['about','education','awards','research','publications','news','teaching','experience','skills','contact'];
@@ -93,52 +154,49 @@
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </nav>
-<!--       <a class="cta" href="#contact">Get in touch</a> -->
     </div>
   </div>
 
-  <!-- HERO -->
+  <!-- HERO (new) -->
   <main class="wrap" id="top">
-    <section class="hero panel">
-      <div class="heroGrid">
-        <img class="avatar" src="https://api.dicebear.com/8.x/initials/svg?seed=Bishal%20Khatri&radius=50" alt="Avatar"/>
-        <div>
+    <section class="hero panel shadow-lg">
+      <div class="heroGrid2">
+        <div class="heroText">
           <h1 class="title">Bishal Khatri</h1>
-          <p class="subtitle">Ph.D. Student • Graduate Research Assistant — WESA Lab, Texas A&M University-Corpus Christi (Corpus Christi, TX)</p>
-<!--           <div class="chips">
-            <span class="chip">RDII & Urban Hydrology</span>
-            <span class="chip">Machine Learning / Deep Learning</span>
-            <span class="chip">Hydrology & Hydraulic Modelling</span>
-            <span class="chip">Python</span>
-            <span class="chip">PyTorch Geometric</span>
-            <span class="chip">GNNs</span>
-            <span class="chip">EPA SWMM</span>
-            <span class="chip">ArcGIS / QGIS</span>
-            <span class="chip">HEC-RAS / HEC-HMS</span>
-          </div> -->
+          <p class="tagline">Ph.D. Student &amp; Graduate Research Assistant — WESA Lab, Texas A&amp;M University–Corpus Christi (Corpus Christi, TX)</p>
+          <p class="pitch muted">
+            AI-driven urban hydrology focused on <b>Rainfall-Derived Inflow &amp; Infiltration (RDII)</b>, spatio-temporal <b>GNNs</b>, and anomaly detection in wastewater networks.
+          </p>
+          <div class="heroCTAs">
+            <a class="btn accent" href="#research">Explore Research</a>
+            <a class="btn" href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a>
+            <a class="btn ghost" href="https://www.linkedin.com/in/khatri-bishal/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn small" href="https://github.com/Khatri01" target="_blank" rel="noopener">GitHub</a>
+            <!-- <a class="btn small" href="cv.pdf" target="_blank" rel="noopener">CV (PDF)</a> -->
+          </div>
+        </div>
+
+        <div class="heroPhotoWrap">
+          <!-- Replace with your real square photo: assets/bishal.jpg -->
+          <img class="avatarXL"
+               src="assets/bishal.jpg"
+               onerror="this.onerror=null;this.src='https://api.dicebear.com/8.x/initials/svg?seed=Bishal%20Khatri&radius=50';"
+               alt="Bishal Khatri headshot"/>
         </div>
       </div>
-      <p class="muted space-top">I work on machine learning for urban hydrology—especially RDII modeling, spatio-temporal GNNs, and anomaly detection in wastewater networks.</p>
-      <div class="row space-top">
-        <a class="cta" href="#">Google Scholar</a>
-        <a class="cta" href="https://github.com/Khatri01" target="_blank">GitHub</a>
-        <a class="cta" href="https://www.linkedin.com/in/khatri-bishal/" target="_blank">LinkedIn</a>
-<!--         <a class="cta" href="#">CV (PDF)</a> -->
-      </div>
     </section>
-
     <!-- ABOUT -->
     <section id="about" class="section">
       <h2><span class="dot"></span>About</h2>
       <div class="panel">
         <p class="muted">
-          I am a Ph.D. student in Computer Science and a Graduate Research Assistant at the Water & Environmental Systems Analysis (WESA) Lab, Texas A&M University–Corpus Christi. 
-          My research lies at the intersection of hydrology, hydraulics, and artificial intelligence. I develop machine learning and graph neural network models for 
+          I am a Ph.D. student in Computer Science and a Graduate Research Assistant at the Water & Environmental Systems Analysis (WESA) Lab, Texas A&M University–Corpus Christi.
+          My research lies at the intersection of hydrology, hydraulics, and artificial intelligence. I develop machine learning and graph neural network models for
           <b>rainfall-derived inflow and infiltration (RDII)</b> quantification in wastewater networks, and <b>surrogate modeling of sewer systems</b>.
         </p>
         <p class="muted">
-          Previously, I earned my MSc in Water Resources and Environmental Management from Leibniz University Hannover, Germany, where I worked on hydrological extremes, 
-          hydro-numerical simulations, and sediment transport studies. My background also includes a B.Tech. in Civil Engineering, alongside professional experience in 
+          Previously, I earned my MSc in Water Resources and Environmental Management from Leibniz University Hannover, Germany, where I worked on hydrological extremes,
+          hydro-numerical simulations, and sediment transport studies. My background also includes a B.Tech. in Civil Engineering, alongside professional experience in
           hydraulic and hydropower project design in Nepal.
         </p>
       </div>
@@ -167,6 +225,7 @@
         </ul>
       </div>
     </section>
+
     <!-- RESEARCH -->
     <section id="research" class="section">
       <h2><span class="dot"></span>Research</h2>
@@ -204,9 +263,9 @@
           <b>Ensemble Optimization for Calibrating RTK Unit Hydrographs</b><br/>
           <span class="muted">Khatri, B. et al., 2025 — Under review</span>
           <div class="row space-top">
-            <a class="cta" href="#">PDF</a>
-            <a class="cta" href="#">Code</a>
-            <a class="cta" href="#">BibTeX</a>
+            <a class="btn small" href="#" target="_blank" rel="noopener">PDF</a>
+            <a class="btn small" href="#" target="_blank" rel="noopener">Code</a>
+            <a class="btn small" href="#" target="_blank" rel="noopener">BibTeX</a>
           </div>
         </li>
       </ul>
