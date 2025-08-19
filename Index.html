@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bishal Khatri — Profile</title>
+  <meta name="description" content="Personal academic profile of Bishal Khatri" />
+  <style>
+    /* ===== Zero‑setup, single‑file CSS ===== */
+    :root{
+      --bg: #0b1220;            /* page background */
+      --panel: #0f172a;         /* card/nav background */
+      --text: #e5e7eb;          /* primary text */
+      --muted: #cbd5e1;         /* secondary text */
+      --brand: #38bdf8;         /* accents */
+      --brand-2: #a78bfa;       /* secondary accent */
+      --border: #1f2a44;        /* borders */
+      --chip: #0b1220;          /* chip bg */
+      --radius: 16px;
+      --shadow: 0 10px 24px rgba(0,0,0,.35);
+      --max: 1100px;
+    }
+    html,body{height:100%}
+    body{margin:0;background:linear-gradient(180deg,var(--bg),#0e152a 65%);color:var(--text);font:15px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max);margin-inline:auto;padding:24px}
+    /* Top bar */
+    .nav{position:sticky;top:0;z-index:40;background:rgba(15,23,42,.75);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+    .nav .inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 24px;max-width:var(--max);margin:0 auto}
+    .brand{font-weight:700;color:#fff}
+    .tabs{display:none;gap:8px;flex-wrap:wrap}
+    .tabs a{display:inline-block;padding:8px 12px;border:1px solid var(--border);border-radius:999px;color:var(--text)}
+    .tabs a.active{background:var(--brand);border-color:transparent;color:#031625}
+    .cta{padding:8px 12px;border:1px solid var(--border);border-radius:999px;color:var(--text);background:transparent}
+    @media (min-width: 860px){.tabs{display:flex}}
+
+    /* Hero */
+    .hero{padding:36px 24px}
+    .heroGrid{display:grid;grid-template-columns:84px 1fr;gap:16px;align-items:center}
+    .avatar{width:84px;height:84px;border-radius:50%;border:2px solid var(--border);object-fit:cover}
+    .title{margin:0;font-size:28px;line-height:1.2}
+    .subtitle{margin:4px 0;color:var(--muted)}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .chip{font-size:12px;padding:6px 10px;background:var(--chip);border:1px solid var(--border);border-radius:999px;color:var(--muted)}
+
+    /* Sections */
+    section{scroll-margin-top:84px}
+    .section{padding:24px}
+    .section h2{display:flex;align-items:center;gap:8px;margin:0 0 12px 0;font-size:18px}
+    .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--brand)}
+    .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+    .grid{display:grid;gap:16px}
+    @media (min-width: 900px){.grid.cols-2{grid-template-columns:1fr 1fr}}
+
+    /* Lists */
+    ul.clean{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+    .newsItem{display:flex;gap:10px;align-items:flex-start}
+    .badge{background:var(--brand);color:#031625;border-radius:999px;padding:2px 8px;font-size:11px;font-weight:700}
+
+    /* Table */
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:8px 6px;border-top:1px solid var(--border)}
+    th{color:var(--muted);font-weight:600;text-align:left}
+
+    /* Footer */
+    footer{border-top:1px solid var(--border);color:var(--muted)}
+
+    /* Small helpers */
+    .muted{color:var(--muted)}
+    .row{display:flex;gap:12px;flex-wrap:wrap}
+    .space-top{margin-top:12px}
+  </style>
+  <script>
+    // tiny scroll spy to highlight active tab
+    document.addEventListener('DOMContentLoaded', () => {
+      const ids = ['about','research','publications','projects','news','teaching','service','contact'];
+      const map = new Map(ids.map(id => [id, document.querySelector(`.tabs a[href="#${id}"]`)]));
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{ if(e.isIntersecting){
+          const id = e.target.id; map.forEach(el=>el?.classList.remove('active')); map.get(id)?.classList.add('active');
+        }})
+      }, { rootMargin: '-50% 0px -40% 0px' });
+      ids.forEach(id=>{const el=document.getElementById(id); if(el) io.observe(el)});
+    });
+  </script>
+</head>
+<body>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="inner">
+      <a class="brand" href="#top">Bishal Khatri</a>
+      <nav class="tabs">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="#news">News</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#service">Service</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="cta" href="#contact">Get in touch</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <main class="wrap" id="top">
+    <section class="hero panel">
+      <div class="heroGrid">
+        <img class="avatar" src="https://api.dicebear.com/8.x/initials/svg?seed=Bishal%20Khatri&radius=50" alt="Avatar"/>
+        <div>
+          <h1 class="title">Bishal Khatri</h1>
+          <p class="subtitle">Ph.D. Student • AI for Water Systems — WESA Lab, TAMU‑CC (Corpus Christi, TX)</p>
+          <div class="chips">
+            <span class="chip">RDII & Urban Hydrology</span>
+            <span class="chip">GNNs / MPNN</span>
+            <span class="chip">Wastewater Anomaly Detection</span>
+          </div>
+        </div>
+      </div>
+      <p class="muted space-top">I work on machine learning for urban hydrology—especially RDII modeling, spatio‑temporal GNNs, and anomaly detection in wastewater networks.</p>
+      <div class="row space-top">
+        <a class="cta" href="#">Google Scholar</a>
+        <a class="cta" href="#">GitHub</a>
+        <a class="cta" href="#">LinkedIn</a>
+        <a class="cta" href="#">CV (PDF)</a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <h2><span class="dot"></span>About</h2>
+      <div class="panel">
+        <p class="muted">I integrate hydrologic knowledge with modern machine learning. Current projects: surrogate modeling of wastewater networks, GNN‑based anomaly detection, and quantifying rainfall‑derived inflow and infiltration (RDII).</p>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research" class="section">
+      <h2><span class="dot"></span>Research</h2>
+      <div class="grid cols-2">
+        <div class="panel">
+          <h3>Urban Hydrology & RDII</h3>
+          <ul>
+            <li>RTK hydrograph calibration with CMA‑ES, DE, GA, SA, PSO</li>
+            <li>Proxy‑sensor methods; uncertainty analysis; cross‑storm validation</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Graph Neural Networks for Sewer Systems</h3>
+          <ul>
+            <li>Spatio‑temporal forecasting with message passing (edge attributes)</li>
+            <li>Anomaly detection and explainability for decision support</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="section">
+      <h2><span class="dot"></span>Publications</h2>
+      <ul class="clean">
+        <li class="panel">
+          <b>Optimizing RTK Parameters for RDII Modeling with Metaheuristic Ensembles</b><br/>
+          <span class="muted">Khatri, B.* et al., 2025 — Under review</span>
+          <div class="row space-top">
+            <a class="cta" href="#">PDF</a>
+            <a class="cta" href="#">Code</a>
+            <a class="cta" href="#">BibTeX</a>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <h2><span class="dot"></span>Projects</h2>
+      <div class="grid cols-2">
+        <div class="panel">
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <h3>HydroNet — Spatio‑Temporal GNN</h3>
+            <span class="badge">2025</span>
+          </div>
+          <p class="muted">MPNN with edge attributes for anomaly detection in sewer networks (PyTorch Geometric).</p>
+        </div>
+        <div class="panel">
+          <div class="row" style="justify-content:space-between;align-items:center">
+            <h3>RTK Parameter Calibration Toolkit</h3>
+            <span class="badge">2024–2025</span>
+          </div>
+          <p class="muted">CMA‑ES, DE, GA, SA, PSO with cross‑validation and rainfall‑intensity stratification.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWS -->
+    <section id="news" class="section">
+      <h2><span class="dot"></span>News</h2>
+      <ul class="clean">
+        <li class="newsItem panel"><span class="badge">Aug 2025</span><span>HydroNet prototype shows strong results on campus dataset.</span></li>
+        <li class="newsItem panel"><span class="badge">May 2025</span><span>Paper draft on RDII‑RTK ensemble ready for submission.</span></li>
+      </ul>
+    </section>
+
+    <!-- TEACHING -->
+    <section id="teaching" class="section">
+      <h2><span class="dot"></span>Teaching</h2>
+      <div class="panel">
+        <table>
+          <thead><tr><th>Course</th><th>Role</th><th>Term</th></tr></thead>
+        <tbody>
+          <tr><td>Intro to Machine Learning</td><td>TA</td><td>Fall 2024</td></tr>
+        </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SERVICE -->
+    <section id="service" class="section">
+      <h2><span class="dot"></span>Service</h2>
+      <div class="panel">
+        <ul>
+          <li>Reviewer: Water Research X, STOTEN</li>
+          <li>Founder: Himalayan Islander Nepalese Association at TAMU‑CC</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <h2><span class="dot"></span>Contact</h2>
+      <div class="panel">
+        <div class="row">
+          <div>Email: <a href="mailto:your.email@tamucc.edu">your.email@tamucc.edu</a></div>
+          <div>Location: Corpus Christi, TX, USA</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap" style="padding-top:8px;padding-bottom:24px">
+    <div class="row" style="justify-content:space-between">
+      <span>© <span id="y"></span> Bishal Khatri</span>
+      <span class="muted">Single‑file site • No build tools</span>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>
