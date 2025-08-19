@@ -6,16 +6,15 @@
   <title>Bishal Khatri — Profile</title>
   <meta name="description" content="Personal academic profile of Bishal Khatri" />
   <style>
-    /* ===== Zero‑setup, single‑file CSS ===== */
     :root{
-      --bg: #0b1220;            /* page background */
-      --panel: #0f172a;         /* card/nav background */
-      --text: #e5e7eb;          /* primary text */
-      --muted: #cbd5e1;         /* secondary text */
-      --brand: #38bdf8;         /* accents */
-      --brand-2: #a78bfa;       /* secondary accent */
-      --border: #1f2a44;        /* borders */
-      --chip: #0b1220;          /* chip bg */
+      --bg: #0b1220;
+      --panel: #0f172a;
+      --text: #e5e7eb;
+      --muted: #cbd5e1;
+      --brand: #38bdf8;
+      --brand-2: #a78bfa;
+      --border: #1f2a44;
+      --chip: #0b1220;
       --radius: 16px;
       --shadow: 0 10px 24px rgba(0,0,0,.35);
       --max: 1100px;
@@ -25,7 +24,6 @@
     a{color:var(--brand);text-decoration:none}
     a:hover{text-decoration:underline}
     .wrap{max-width:var(--max);margin-inline:auto;padding:24px}
-    /* Top bar */
     .nav{position:sticky;top:0;z-index:40;background:rgba(15,23,42,.75);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
     .nav .inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 24px;max-width:var(--max);margin:0 auto}
     .brand{font-weight:700;color:#fff}
@@ -35,7 +33,6 @@
     .cta{padding:8px 12px;border:1px solid var(--border);border-radius:999px;color:var(--text);background:transparent}
     @media (min-width: 860px){.tabs{display:flex}}
 
-    /* Hero */
     .hero{padding:36px 24px}
     .heroGrid{display:grid;grid-template-columns:84px 1fr;gap:16px;align-items:center}
     .avatar{width:84px;height:84px;border-radius:50%;border:2px solid var(--border);object-fit:cover}
@@ -44,7 +41,6 @@
     .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
     .chip{font-size:12px;padding:6px 10px;background:var(--chip);border:1px solid var(--border);border-radius:999px;color:var(--muted)}
 
-    /* Sections */
     section{scroll-margin-top:84px}
     .section{padding:24px}
     .section h2{display:flex;align-items:center;gap:8px;margin:0 0 12px 0;font-size:18px}
@@ -53,28 +49,23 @@
     .grid{display:grid;gap:16px}
     @media (min-width: 900px){.grid.cols-2{grid-template-columns:1fr 1fr}}
 
-    /* Lists */
     ul.clean{list-style:none;padding:0;margin:0;display:grid;gap:12px}
     .newsItem{display:flex;gap:10px;align-items:flex-start}
     .badge{background:var(--brand);color:#031625;border-radius:999px;padding:2px 8px;font-size:11px;font-weight:700}
 
-    /* Table */
     table{width:100%;border-collapse:collapse}
     th,td{padding:8px 6px;border-top:1px solid var(--border)}
     th{color:var(--muted);font-weight:600;text-align:left}
 
-    /* Footer */
     footer{border-top:1px solid var(--border);color:var(--muted)}
 
-    /* Small helpers */
     .muted{color:var(--muted)}
     .row{display:flex;gap:12px;flex-wrap:wrap}
     .space-top{margin-top:12px}
   </style>
   <script>
-    // tiny scroll spy to highlight active tab
     document.addEventListener('DOMContentLoaded', () => {
-      const ids = ['about','research','publications','projects','news','teaching','service','contact'];
+      const ids = ['about','education','awards','research','publications','news','teaching','experience','skills','contact'];
       const map = new Map(ids.map(id => [id, document.querySelector(`.tabs a[href="#${id}"]`)]));
       const io = new IntersectionObserver((entries)=>{
         entries.forEach(e=>{ if(e.isIntersecting){
@@ -92,12 +83,14 @@
       <a class="brand" href="#top">Bishal Khatri</a>
       <nav class="tabs">
         <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#awards">Awards</a>
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
-        <a href="#projects">Projects</a>
         <a href="#news">News</a>
         <a href="#teaching">Teaching</a>
-        <a href="#service">Service</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </nav>
       <a class="cta" href="#contact">Get in touch</a>
@@ -111,15 +104,21 @@
         <img class="avatar" src="https://api.dicebear.com/8.x/initials/svg?seed=Bishal%20Khatri&radius=50" alt="Avatar"/>
         <div>
           <h1 class="title">Bishal Khatri</h1>
-          <p class="subtitle">Ph.D. Student • AI for Water Systems — WESA Lab, TAMU‑CC (Corpus Christi, TX)</p>
+          <p class="subtitle">Ph.D. Student • Graduate Research Assistant — WESA Lab, Texas A&M University-Corpus Christi (Corpus Christi, TX)</p>
           <div class="chips">
             <span class="chip">RDII & Urban Hydrology</span>
-            <span class="chip">GNNs / MPNN</span>
-            <span class="chip">Wastewater Anomaly Detection</span>
+            <span class="chip">Machine Learning / Deep Learning</span>
+            <span class="chip">Hydrology & Hydraulic Modelling</span>
+            <span class="chip">Python</span>
+            <span class="chip">PyTorch Geometric</span>
+            <span class="chip">GNNs</span>
+            <span class="chip">EPA SWMM</span>
+            <span class="chip">ArcGIS / QGIS</span>
+            <span class="chip">HEC-RAS / HEC-HMS</span>
           </div>
         </div>
       </div>
-      <p class="muted space-top">I work on machine learning for urban hydrology—especially RDII modeling, spatio‑temporal GNNs, and anomaly detection in wastewater networks.</p>
+      <p class="muted space-top">I work on machine learning for urban hydrology—especially RDII modeling, spatio-temporal GNNs, and anomaly detection in wastewater networks.</p>
       <div class="row space-top">
         <a class="cta" href="#">Google Scholar</a>
         <a class="cta" href="#">GitHub</a>
@@ -132,10 +131,42 @@
     <section id="about" class="section">
       <h2><span class="dot"></span>About</h2>
       <div class="panel">
-        <p class="muted">I integrate hydrologic knowledge with modern machine learning. Current projects: surrogate modeling of wastewater networks, GNN‑based anomaly detection, and quantifying rainfall‑derived inflow and infiltration (RDII).</p>
+        <p class="muted">
+          I am a Ph.D. student in Computer Science and a Graduate Research Assistant at the Water & Environmental Systems Analysis (WESA) Lab, Texas A&M University–Corpus Christi. 
+          My research lies at the intersection of hydrology, hydraulics, and artificial intelligence. I develop machine learning and graph neural network models for 
+          <b>rainfall-derived inflow and infiltration (RDII)</b> quantification, <b>spatio-temporal anomaly detection</b> in wastewater networks, and <b>surrogate modeling of sewer systems</b>.
+        </p>
+        <p class="muted">
+          Previously, I earned my MSc in Water Resources and Environmental Management from Leibniz University Hannover, Germany, where I worked on hydrological extremes, 
+          hydro-numerical simulations, and sediment transport studies. My background also includes a B.Tech. in Civil Engineering, alongside professional experience in 
+          hydraulic and hydropower project design in Nepal.
+        </p>
       </div>
     </section>
 
+    <!-- EDUCATION -->
+    <section id="education" class="section">
+      <h2><span class="dot"></span>Education</h2>
+      <div class="panel">
+        <ul>
+          <li><b>Ph.D. Computer Science</b>, Texas A&M University–Corpus Christi, USA — Ongoing</li>
+          <li><b>M.Sc. Water Resources & Environmental Management</b>, Leibniz University Hannover, Germany, 2021–2024 — Grade: “Very Good” (1.5)</li>
+          <li><b>B.Tech. Civil Engineering</b>, Jawaharlal Nehru Technological University Kakinada, India, 2012–2016 — Grade: “A” (87.42%)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- AWARDS -->
+    <section id="awards" class="section">
+      <h2><span class="dot"></span>Awards</h2>
+      <div class="panel">
+        <ul>
+          <li><b>DAAD Scholarship</b> — Full scholarship with stipend for 2 years of Master’s study in Germany (2021–2023)</li>
+          <li><b>COMPEX Scholarship</b> — Embassy of India, Kathmandu; full scholarship with stipend for 4 years of Bachelor study (2012–2016)</li>
+          <li><b>CHI Educational Grant</b> — PCSWMM educational license (2025)</li>
+        </ul>
+      </div>
+    </section>
     <!-- RESEARCH -->
     <section id="research" class="section">
       <h2><span class="dot"></span>Research</h2>
@@ -143,16 +174,24 @@
         <div class="panel">
           <h3>Urban Hydrology & RDII</h3>
           <ul>
-            <li>RTK hydrograph calibration with CMA‑ES, DE, GA, SA, PSO</li>
-            <li>Proxy‑sensor methods; uncertainty analysis; cross‑storm validation</li>
+            <li>RTK hydrograph calibration using metaheuristic optimization (CMA-ES, DE, GA, SA, PSO)</li>
+            <li>Proxy-sensor methods; uncertainty analysis; cross-storm validation</li>
           </ul>
         </div>
         <div class="panel">
           <h3>Graph Neural Networks for Sewer Systems</h3>
           <ul>
-            <li>Spatio‑temporal forecasting with message passing (edge attributes)</li>
+            <li>Spatio-temporal forecasting with message passing and edge attributes</li>
             <li>Anomaly detection and explainability for decision support</li>
           </ul>
+        </div>
+        <div class="panel">
+          <h3>Master’s Thesis (LUH, 2023–2024)</h3>
+          <p class="muted">“Using Acoustic Backscatter Sensors to Measure Suspended Sediment Concentration Downstream of a Monopile.”</p>
+        </div>
+        <div class="panel">
+          <h3>Research Project (LUH, 2023)</h3>
+          <p class="muted">“Hydro-numerical Simulations of Climate Change Scenarios for the Coastal Megacity of Ho Chi Minh City, Vietnam.”</p>
         </div>
       </div>
     </section>
@@ -173,33 +212,12 @@
       </ul>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section">
-      <h2><span class="dot"></span>Projects</h2>
-      <div class="grid cols-2">
-        <div class="panel">
-          <div class="row" style="justify-content:space-between;align-items:center">
-            <h3>HydroNet — Spatio‑Temporal GNN</h3>
-            <span class="badge">2025</span>
-          </div>
-          <p class="muted">MPNN with edge attributes for anomaly detection in sewer networks (PyTorch Geometric).</p>
-        </div>
-        <div class="panel">
-          <div class="row" style="justify-content:space-between;align-items:center">
-            <h3>RTK Parameter Calibration Toolkit</h3>
-            <span class="badge">2024–2025</span>
-          </div>
-          <p class="muted">CMA‑ES, DE, GA, SA, PSO with cross‑validation and rainfall‑intensity stratification.</p>
-        </div>
-      </div>
-    </section>
-
     <!-- NEWS -->
     <section id="news" class="section">
       <h2><span class="dot"></span>News</h2>
       <ul class="clean">
         <li class="newsItem panel"><span class="badge">Aug 2025</span><span>HydroNet prototype shows strong results on campus dataset.</span></li>
-        <li class="newsItem panel"><span class="badge">May 2025</span><span>Paper draft on RDII‑RTK ensemble ready for submission.</span></li>
+        <li class="newsItem panel"><span class="badge">May 2025</span><span>Paper draft on RDII-RTK ensemble ready for submission.</span></li>
       </ul>
     </section>
 
@@ -208,22 +226,92 @@
       <h2><span class="dot"></span>Teaching</h2>
       <div class="panel">
         <table>
-          <thead><tr><th>Course</th><th>Role</th><th>Term</th></tr></thead>
-        <tbody>
-          <tr><td>Intro to Machine Learning</td><td>TA</td><td>Fall 2024</td></tr>
-        </tbody>
+          <thead><tr><th>Course / Module</th><th>Role</th><th>Term</th></tr></thead>
+          <tbody>
+            <tr><td>Groundwater Hydraulics (LUH)</td><td>Student Tutor</td><td>2022</td></tr>
+            <tr><td>Hydrology & Water Resources Management (LUH)</td><td>Student Tutor</td><td>2022–2023</td></tr>
+            <tr><td>Hydrological Modelling Lab – Hydrological Extremes (LUH)</td><td>Student Tutor</td><td>2022–2023</td></tr>
+          </tbody>
         </table>
       </div>
     </section>
 
-    <!-- SERVICE -->
-    <section id="service" class="section">
-      <h2><span class="dot"></span>Service</h2>
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section">
+      <h2><span class="dot"></span>Experience</h2>
       <div class="panel">
         <ul>
-          <li>Reviewer: Water Research X, STOTEN</li>
-          <li>Founder: Himalayan Islander Nepalese Association at TAMU‑CC</li>
+          <li><b>Graduate Research Assistant</b>, Water & Environmental Systems Analysis (WESA) Lab, Texas A&M University–Corpus Christi, USA (2023–Present)<br/>
+            Research on rainfall-derived inflow and infiltration (RDII) modeling, spatio-temporal graph neural networks (GNNs), and anomaly detection in wastewater systems.
+          </li>
+          <li><b>Student Assistant (Research)</b>, Ludwig Franzius Institute for Hydraulic Engineering and Estuary and Coastal Engineering, Leibniz University Hannover, Germany (2022–2024)<br/>
+            Assisted with hydro-numerical modeling, laboratory experiments, literature reviews, and data analysis for coastal engineering and climate change projects.
+          </li>
+          <li><b>Civil Engineer</b>, Hydro-Consult Engineering Ltd., Kathmandu, Nepal (2018–2021)<br/>
+            Hydrological and hydraulic design of hydropower projects (>120 MW) and construction supervision.
+          </li>
+          <li><b>Civil Engineer</b>, Lumbini Region Tourism Promotion Development Committee, Government of Nepal (2016–2018)<br/>
+            Detailed design, cost estimation, construction supervision, and stakeholder coordination for infrastructure projects.
+          </li>
         </ul>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <h2><span class="dot"></span>Skills</h2>
+      <div class="panel">
+        <div class="chips space-top">
+          <span class="chip">Python</span>
+          <span class="chip">MATLAB</span>
+          <span class="chip">R</span>
+          <span class="chip">LaTeX</span>
+          <span class="chip">Machine Learning</span>
+          <span class="chip">Deep Learning</span>
+          <span class="chip">EPA SWMM</span>
+          <span class="chip">HEC-HMS</span>
+          <span class="chip">HEC-RAS</span>
+          <span class="chip">MODFLOW</span>
+          <span class="chip">WEAP</span>
+          <span class="chip">ArcGIS</span>
+          <span class="chip">QGIS</span>
+          <span class="chip">Remote Sensing</span>
+          <span class="chip">Data Analysis</span>
+          <span class="chip">Technical Writing</span>
+        </div>
+        <div class="grid cols-2 space-top">
+          <div>
+            <h4>Programming & Data</h4>
+            <ul>
+              <li>Python, MATLAB, R, LaTeX</li>
+              <li>Machine Learning (regression, classification, clustering, reinforcement learning, NLP, deep learning)</li>
+              <li>Data analysis & visualization</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Hydrologic & Hydraulic Modeling</h4>
+            <ul>
+              <li>HEC-HMS, HEC-RAS, HBV, EPA SWMM, MODFLOW, WEAP</li>
+              <li>Hydrological and hydraulic design of water infrastructure</li>
+              <li>Uncertainty analysis and validation</li>
+            </ul>
+          </div>
+          <div>
+            <h4>GIS & Remote Sensing</h4>
+            <ul>
+              <li>ArcGIS, QGIS, SNAP</li>
+              <li>Spatial data analysis and visualization</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Professional</h4>
+            <ul>
+              <li>Technical writing & presentations</li>
+              <li>Stakeholder coordination</li>
+              <li>Strong oral and written communication</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -242,7 +330,7 @@
   <footer class="wrap" style="padding-top:8px;padding-bottom:24px">
     <div class="row" style="justify-content:space-between">
       <span>© <span id="y"></span> Bishal Khatri</span>
-      <span class="muted">Single‑file site • No build tools</span>
+      <span class="muted">Single-file site • No build tools</span>
     </div>
   </footer>
   <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
